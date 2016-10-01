@@ -21,7 +21,11 @@ class PictureViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func shareImage(_ sender: UIBarButtonItem) {
-        
+        if let image = image {
+            let activityController = UIActivityViewController(activityItems: [image],
+                                                              applicationActivities: nil)
+            present(activityController, animated: true, completion: nil)
+        }
     }
 
     // MARK: - ViewController life cycle
