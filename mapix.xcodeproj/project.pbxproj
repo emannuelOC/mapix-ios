@@ -16,6 +16,7 @@
 		A2EB04AB1DA06A1A003BD967 /* mapixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EB04AA1DA06A1A003BD967 /* mapixUITests.swift */; };
 		A2EB04BA1DA06C24003BD967 /* PicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EB04B91DA06C23003BD967 /* PicturesViewController.swift */; };
 		A2EB04BC1DA06E0C003BD967 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EB04BB1DA06E0C003BD967 /* PictureCollectionViewCell.swift */; };
+		A2EB04BE1DA07069003BD967 /* PicturesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EB04BD1DA07069003BD967 /* PicturesStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		A2EB04AC1DA06A1A003BD967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2EB04B91DA06C23003BD967 /* PicturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesViewController.swift; sourceTree = "<group>"; };
 		A2EB04BB1DA06E0C003BD967 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		A2EB04BD1DA07069003BD967 /* PicturesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				A2EB048B1DA06A1A003BD967 /* Main.storyboard */,
 				A2EB04BB1DA06E0C003BD967 /* PictureCollectionViewCell.swift */,
 				A2EB04B91DA06C23003BD967 /* PicturesViewController.swift */,
+				A2EB04BD1DA07069003BD967 /* PicturesStore.swift */,
 				A2EB04B81DA06B1F003BD967 /* Supporting files */,
 			);
 			path = mapix;
@@ -278,6 +281,7 @@
 			files = (
 				A2EB04901DA06A1A003BD967 /* mapix.xcdatamodeld in Sources */,
 				A2EB04BC1DA06E0C003BD967 /* PictureCollectionViewCell.swift in Sources */,
+				A2EB04BE1DA07069003BD967 /* PicturesStore.swift in Sources */,
 				A2EB04881DA06A1A003BD967 /* AppDelegate.swift in Sources */,
 				A2EB04BA1DA06C24003BD967 /* PicturesViewController.swift in Sources */,
 			);

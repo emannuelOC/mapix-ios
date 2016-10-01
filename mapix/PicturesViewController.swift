@@ -10,9 +10,9 @@ import UIKit
 
 class PicturesViewController: UIViewController, UICollectionViewDataSource {
     
-    // fake model:
+    // MARK: - Model
     
-    var fakeModel = ["angry", "angry", "angry", "angry", "angry", "angry", "angry", "angry", "angry"]
+    let store = PicturesStore()
 
     // MARK: - Outlets
     
@@ -31,7 +31,7 @@ class PicturesViewController: UIViewController, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fakeModel.count
+        return store.numberOfPictures()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -39,8 +39,13 @@ class PicturesViewController: UIViewController, UICollectionViewDataSource {
             .dequeueReusableCell(withReuseIdentifier: "PictureCell", for: indexPath)
             as! PictureCollectionViewCell
         
-        cell.pictureImageView.image = #imageLiteral(resourceName: "angry") 
+        if let image = store.picture(at: indexPath.item) {
+            cell.pictureImageView.image = image
+        }
         
         return cell
     }
+    
+    
+    
 }
