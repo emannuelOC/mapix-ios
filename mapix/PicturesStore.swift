@@ -17,7 +17,7 @@ class PicturesStore {
      Returns the number of pictures.
      */
     func numberOfPictures() -> Int {
-        return 0
+        return pictures.count
     }
     
     /**
@@ -33,9 +33,10 @@ class PicturesStore {
      - returns: The picture (`UIImage`) at the `index`.
      */
     func picture(at index: Int) -> UIImage? {
-        
-        //...
-        return nil
+        if index < 0 || index >= pictures.count {
+            return nil
+        }
+        return pictures[index]
     }
     
     /**
@@ -44,7 +45,10 @@ class PicturesStore {
      - parameter picture: The image to be added.
      */
     func add(picture: UIImage) {
-        
+        pictures.append(picture)
+        NotificationCenter
+            .default
+            .post(name: Notification.Name("NewPictureAdded"), object: self)
     }
     
 }
