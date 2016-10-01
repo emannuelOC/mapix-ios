@@ -50,6 +50,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="FQ8-fE-Jdf"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Lpl-5B-O6H"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -70,11 +71,20 @@
                     </navigationItem>
                     <connections>
                         <outlet property="picturesCollectionView" destination="pUv-YW-yOh" id="pBQ-4w-uiL"/>
+                        <segue destination="qSd-w3-gQD" kind="show" identifier="ShowPicture" id="3eT-TA-TGH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--PictureVC-->
+        <scene sceneID="Dse-6e-lha">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Picture" referencedIdentifier="PictureVC" id="qSd-w3-gQD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MXD-qI-Cb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1711" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9yh-T6-wua">

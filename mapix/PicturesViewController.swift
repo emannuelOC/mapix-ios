@@ -10,6 +10,7 @@ import UIKit
 
 class PicturesViewController: UIViewController,
                                 UICollectionViewDataSource,
+                                UICollectionViewDelegate,
                                 UIImagePickerControllerDelegate,
                                 UINavigationControllerDelegate {
     
@@ -63,6 +64,15 @@ class PicturesViewController: UIViewController,
         return cell
     }
     
+    // MARK: - CollectionView delegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath),
+            let image = (cell as? PictureCollectionViewCell)?.pictureImageView.image
+            else { return }
+        performSegue(withIdentifier: "ShowPicture", sender: image)
+    }
+    
     // MARK: - Adding new pictures
     
     func showActionSheet() {
@@ -112,6 +122,19 @@ class PicturesViewController: UIViewController,
     
     func observeNewPictureNotification(_ notification: Notification?) {
         picturesCollectionView.reloadData()
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPicture" {
+            guard let image = sender as? UIImage,
+                let vc = segue.destination as? PictureViewController
+                else {
+                return
+            }
+            vc.image = image
+        }
     }
     
 }

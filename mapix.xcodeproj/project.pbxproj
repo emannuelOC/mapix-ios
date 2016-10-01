@@ -17,6 +17,8 @@
 		A2EB04BA1DA06C24003BD967 /* PicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EB04B91DA06C23003BD967 /* PicturesViewController.swift */; };
 		A2EB04BC1DA06E0C003BD967 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EB04BB1DA06E0C003BD967 /* PictureCollectionViewCell.swift */; };
 		A2EB04BE1DA07069003BD967 /* PicturesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EB04BD1DA07069003BD967 /* PicturesStore.swift */; };
+		A2EB04C01DA07B7E003BD967 /* Picture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2EB04BF1DA07B7E003BD967 /* Picture.storyboard */; };
+		A2EB04C31DA07C61003BD967 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EB04C21DA07C61003BD967 /* PictureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		A2EB04B91DA06C23003BD967 /* PicturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesViewController.swift; sourceTree = "<group>"; };
 		A2EB04BB1DA06E0C003BD967 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2EB04BD1DA07069003BD967 /* PicturesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesStore.swift; sourceTree = "<group>"; };
+		A2EB04BF1DA07B7E003BD967 /* Picture.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Picture.storyboard; path = ViewPicture/Picture.storyboard; sourceTree = "<group>"; };
+		A2EB04C21DA07C61003BD967 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PictureViewController.swift; path = ViewPicture/PictureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				A2EB04BB1DA06E0C003BD967 /* PictureCollectionViewCell.swift */,
 				A2EB04B91DA06C23003BD967 /* PicturesViewController.swift */,
 				A2EB04BD1DA07069003BD967 /* PicturesStore.swift */,
+				A2EB04C11DA07C49003BD967 /* View Picture */,
 				A2EB04B81DA06B1F003BD967 /* Supporting files */,
 			);
 			path = mapix;
@@ -140,6 +145,15 @@
 				A2EB048E1DA06A1A003BD967 /* mapix.xcdatamodeld */,
 			);
 			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		A2EB04C11DA07C49003BD967 /* View Picture */ = {
+			isa = PBXGroup;
+			children = (
+				A2EB04BF1DA07B7E003BD967 /* Picture.storyboard */,
+				A2EB04C21DA07C61003BD967 /* PictureViewController.swift */,
+			);
+			name = "View Picture";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2EB04951DA06A1A003BD967 /* LaunchScreen.storyboard in Resources */,
+				A2EB04C01DA07B7E003BD967 /* Picture.storyboard in Resources */,
 				A2EB04921DA06A1A003BD967 /* Assets.xcassets in Resources */,
 				A2EB048D1DA06A1A003BD967 /* Main.storyboard in Resources */,
 			);
@@ -280,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2EB04901DA06A1A003BD967 /* mapix.xcdatamodeld in Sources */,
+				A2EB04C31DA07C61003BD967 /* PictureViewController.swift in Sources */,
 				A2EB04BC1DA06E0C003BD967 /* PictureCollectionViewCell.swift in Sources */,
 				A2EB04BE1DA07069003BD967 /* PicturesStore.swift in Sources */,
 				A2EB04881DA06A1A003BD967 /* AppDelegate.swift in Sources */,
