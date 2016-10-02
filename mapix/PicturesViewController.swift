@@ -16,7 +16,7 @@ class PicturesViewController: UIViewController,
     
     // MARK: - Model
     
-    let store = PicturesStore()
+    var store: PicturesStore?
 
     // MARK: - Outlets
     
@@ -29,6 +29,11 @@ class PicturesViewController: UIViewController,
     }
     
     // MARK: - ViewController life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        store = PicturesStore(context: managedObjectContext)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -48,7 +53,7 @@ class PicturesViewController: UIViewController,
 
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return store.numberOfPictures()
+        return store?.numberOfPictures() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -57,7 +62,7 @@ class PicturesViewController: UIViewController,
             .dequeueReusableCell(withReuseIdentifier: "PictureCell", for: indexPath)
             as! PictureCollectionViewCell
         
-        if let image = store.picture(at: indexPath.item) {
+        if let image = store?.picture(at: indexPath.item) {
             cell.pictureImageView.image = image
         }
         
@@ -114,7 +119,7 @@ class PicturesViewController: UIViewController,
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            store.add(picture: image)
+            store?.add(picture: image)
         }
     }
     

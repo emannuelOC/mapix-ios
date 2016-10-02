@@ -7,11 +7,37 @@
 //
 
 import UIKit
+import CoreData
 
 /// A class that provides the images to be presented
 class PicturesStore {
     
     private var pictures = [UIImage]()
+    
+    private var context: NSManagedObjectContext?
+    
+    /** 
+     Initializes a PictureStore object with a 
+     given NSManagedObjectContext.
+     */
+    init(context: NSManagedObjectContext? = nil) {
+        if context != nil {
+            self.context = context
+            loadImages()
+        }
+    }
+    
+    private func loadImages() {
+        if let context = context {
+            let pics = Picture.retrieve(at: context)
+            for p in pics {
+                let path = p.filePath ?? ""
+                if let image = retrieveImageFile(with: path) {
+                    pictures.append(image)
+                }
+            }
+        }
+    }
     
     /**
      Returns the number of pictures.
@@ -46,9 +72,43 @@ class PicturesStore {
      */
     func add(picture: UIImage) {
         pictures.append(picture)
+        save(picture: picture)
         NotificationCenter
             .default
             .post(name: Notification.Name("NewPictureAdded"), object: self)
     }
     
+    private func save(picture: UIImage) {
+        if let moc = context {
+            let pictureEntity = Picture.createNew(at: moc)
+            pictureEntity?.title = ""
+            pictureEntity?.filePath = persistFile(for: picture)
+            do {
+                try moc.save()
+            } catch {} // TODO: handle error
+        }
+    }
+    
+    private func persistFile(for image: UIImage) -> String {
+        let imageData = UIImageJPEGRepresentation(image, 1.0)
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                       .userDomainMask,
+                                                       true)[0]
+        let fileName = "\(Date().timeIntervalSince1970)"
+                            .replacingOccurrences(of: ".",
+                                                  with: "_")
+        let imagePath = path.appending("/\(fileName)")
+        do {
+            try imageData?.write(to: URL(fileURLWithPath: imagePath))
+        } catch {} // TODO: handle errors
+        return fileName
+    }
+    
+    private func retrieveImageFile(with name: String) -> UIImage? {
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                       .userDomainMask,
+                                                       true)[0]
+        let fileName = path.appending("/\(name)")
+        return UIImage(contentsOfFile: fileName)
+    }
 }
