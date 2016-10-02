@@ -10,39 +10,13 @@ import Foundation
 import CoreData
 
 
-public class Picture: NSManagedObject {
+final public class Picture: NSManagedObject, CoreDataObject {
 
     static var entityName = "Picture"
     
-    static func entityFetchRequest() -> NSFetchRequest<NSManagedObject> {
+    static func entityFetchRequest<T : NSManagedObject>() -> NSFetchRequest<T> {
         let request: NSFetchRequest<Picture> = NSFetchRequest(entityName: entityName)
-        return request as! NSFetchRequest<NSManagedObject>
-    }
-    
-    static func retrieve(at context: NSManagedObjectContext,
-                         with predicate: NSPredicate? = nil) -> [Picture] {
-        
-        let request: NSFetchRequest<Picture> = NSFetchRequest(entityName: entityName)
-        if let predicate = predicate {
-            request.predicate = predicate
-        }
-        
-        do {
-            let result = try context.fetch(request)
-            return result
-        } catch {
-            // TODO: handle error
-            return []
-        }
-    }
-    
-    static func createNew(at context: NSManagedObjectContext) -> Picture? {
-        if let entity = NSEntityDescription
-            .insertNewObject(forEntityName: entityName,
-                             into: context) as? Picture {
-            return entity
-        }
-        return nil
+        return request as! NSFetchRequest<T>
     }
     
 }

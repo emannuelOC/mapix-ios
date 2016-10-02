@@ -16,7 +16,7 @@ protocol CoreDataObject {
     static func createNew(at context: NSManagedObjectContext) -> Self?
     
     static var entityName: String { get }
-    static func entityFetchRequest() -> NSFetchRequest<NSManagedObject>
+    static func entityFetchRequest<T: NSManagedObject>() -> NSFetchRequest<T>
     
 }
 
